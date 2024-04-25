@@ -11,7 +11,7 @@ class LimitOrderAgent(PriceListener):
         """
         super().__init__()
         self.execution_client = execution_client
-        self.orders: list[tuple[str, int, float]] = []
+        self.orders: list[tuple[str, int, float, bool]] = []
 
     def add_order(self, buy: bool, product_id: str, amount: int, limit_price: float):
         self.orders.append((product_id, amount, limit_price, buy))
