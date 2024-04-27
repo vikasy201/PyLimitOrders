@@ -36,7 +36,8 @@ class LimitOrderAgent(PriceListener):
         # see PriceListener protocol and readme file
         # Here we need to put the link to fetch the Price for a Particular Product ID
         api_link = "some_api_link/" + product_id
-        response = requests.get(api_link)
-        return response.json()
+        response = requests.get(api_link).json()
+        
         # if product_id == "IBM" and price < 100:
         #     self.execution_client.buy("IBM", 1000, price)
+        self. execute_orders(response["product_id"], response["current_price"])
